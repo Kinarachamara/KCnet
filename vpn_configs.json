@@ -1,0 +1,17 @@
+{
+  "dialog": [
+    "trojan://password@server1.example.com:443?security=tls&sni=server1.example.com&type=ws&path=%2Fpath#Dialog-1",
+    "trojan://password@server2.example.com:443?security=tls&sni=server2.example.com&type=ws&path=%2Fpath#Dialog-2"
+  ],
+  "mobitel": [
+    "trojan://password@mobitel1.example.com:443?security=tls&sni=mobitel1.example.com#Mobitel-1",
+    "trojan://password@mobitel2.example.com:443?security=tls&sni=mobitel2.example.com#Mobitel-2"
+  ],
+  "hutch": [
+    "trojan://password@hutch1.example.com:443?security=tls&sni=hutch1.example.com#Hutch-1"
+  ],
+  "default": [
+    "trojan://password@default1.example.com:443?security=tls&sni=default1.example.com#Default-1",
+    "trojan://password@default2.example.com:443?security=tls&sni=default2.example.com#Default-2"
+  ]
+}
