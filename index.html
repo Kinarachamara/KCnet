@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart VPN - Auto Select Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        h2 { color: #2c3e50; margin-bottom: 20px; }
+        label { font-size: 16px; color: #34495e; font-weight: bold; }
+        select {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #fff;
+        }
+        button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        button:hover { background-color: #27ae60; }
+        .result-box {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-left: 5px solid #3498db;
+            border-radius: 4px;
+            text-align: left;
+            word-break: break-all;
+            display: none;
+        }
+        .result-title { font-weight: bold; color: #2c3e50; margin-bottom: 5px; }
+        .config-text { font-family: monospace; font-size: 12px; color: #e74c3c; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Smart VPN Server Selector 🇱🇰</h2>
+    
+    <!-- පරිශීලකයාගේ ජාලය තේරීමට (ඇප් එකේදී මෙය Auto හඳුනාගනී) -->
+    <label for="networkSelect">ඔබේ සන්නිවේදන ජාලය (Network) තෝරන්න:</label>
+    <select id="networkSelect">
+        <option value="dialog">Dialog Axiata</option>
+        <option value="mobitel">SLT-Mobitel</option>
+        <option value="hutch">Hutch Lanka</option>
+        <option value="airtel">Airtel (Other)</option>
+    </select>
+
+    <button onclick="connectVPN()">Connect VPN</button>
+
+    <!-- ප්‍රතිඵලය පෙන්වන ස්ථානය -->
+    <div id="resultBox" class="result-box">
+        <div class="result-title" id="selectedIspText"></div>
+        <div class="result-title" style="color: #27ae60;" id="serverNameText"></div>
+        <p class="result-title">තෝරාගත් Random Trojan Config එක:</p>
+        <div class="config-text" id="configText"></div>
+    </div>
+</div>
+
+<script>
+    // GitHub එකේ ඇති JSON එකට සමාන Mock Data පද්ධතිය
+    const mockGitHubJson = {
+        "dialog": [
+            "trojan://40fe7353-819e-45db-817b-2d33ab175c94@us.cloudnet.one:443?type=tcp&security=tls&sni=://bug1.com#US-Dialog-Server-1",
+            "trojan://40fe7353-819e-45db-817b-2d33ab175c94@us.cloudnet.one:443?type=tcp&security=tls&sni=://bug2.com#US-Dialog-Server-2",
+            "trojan://40fe7353-819e-45db-817b-2d33ab175c94@us.cloudnet.one:443?type=tcp&security=tls&sni=://bug3.com#US-Dialog-Server-3"
+        ],
+        "mobitel": [
+            "trojan://77fe5533-819e-45db-817b-2d33ab175c94@uk.cloudnet.one:443?type=tcp&security=tls&sni=://bug1.com#UK-Mobitel-Server-1",
+            "trojan://77fe5533-819e-45db-817b-2d33ab175c94@uk.cloudnet.one:443?type=tcp&security=tls&sni=://bug2.com#UK-Mobitel-Server-2"
+        ],
+        "hutch": [
+            "trojan://11fe2233-819e-45db-817b-2d33ab175c94@sg.cloudnet.one:443?type=tcp&security=tls&sni=web.whatsapp.net#SG-Hutch-Server-1"
+        ],
+        "default": [
+            "trojan://00fe0000-819e-45db-817b-2d33ab175c94@global.cloudnet.one:443?type=tcp&security=tls&sni=google.com#Global-Default-Server"
+        ]
+    };
+
+    function connectVPN() {
+        // 1. තෝරාගත් ISP එක ලබාගැනීම
+        const selectedIsp = document.getElementById("networkSelect").value;
+        
+        // 2. ISP එක අනුව JSON එකෙන් Array එක තෝරාගැනීම (නැත්නම් Default එකට යාම)
+        let configList = mockGitHubJson[selectedIsp];
+        if (!configList || configList.length === 0) {
+            configList = mockGitHubJson["default"];
+        }
+
+        // 3. ලැයිස්තුව ඇතුළෙන් අහඹු ලෙස (Random) එකක් තෝරාගැනීම
+        const randomIndex = Math.floor(Math.random() * configList.length);
+        const selectedConfig = configList[randomIndex];
+
+        // Config එකෙන් Server Name එක වෙන් කර හඳුනාගැනීම (# ලකුණෙන් පසු කොටස)
+        const serverName = selectedConfig.split('#')[1] || "Unknown Server";
+
+        // 4. ප්‍රතිඵලය UI එක මත ලස්සනට පෙන්වීම
+        document.getElementById("selectedIspText").innerText = "හඳුනාගත් ජාලය: " + selectedIsp.toUpperCase();
+        document.getElementById("serverNameText").innerText = "සම්බන්ධ වන සර්වර් එක: " + serverName;
+        document.getElementById("configText").innerText = selectedConfig;
+        document.getElementById("resultBox").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
