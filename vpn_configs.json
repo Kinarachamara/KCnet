@@ -12,6 +12,6 @@
   ],
   "default": [
     "trojan://password@default1.example.com:443?security=tls&sni=default1.example.com#Default-1",
-    "trojan://password@default2.example.com:443?security=tls&sni=default2.example.com#Default-2"
+    "vless://39fb2c17-d96c-4512-9330-07d94d84181f@frankfurt1.cloudnet-movies.win:443?type=tcp&encryption=none&security=tls&sni=web.whatsapp.net&alpn=h2,http/1.1#DE-3-cloudnetfreev2ray-9b96"
   ]
 }
