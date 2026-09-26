@@ -1,6 +1,6 @@
 {
   "dialog": [
-    "trojan://password@server1.example.com:443?security=tls&sni=server1.example.com&type=ws&path=%2Fpath#Dialog-1",
+    "vless://0b93f629-6dcc-4087-a456-d3276056ee21@frankfurt1.cloudnet-movies.win:443?type=tcp&encryption=none&security=tls&sni=web.whatsapp.net&alpn=h2,http/1.1#DE-1-cloudnetfreev2ray-b6c5",
     "trojan://password@server2.example.com:443?security=tls&sni=server2.example.com&type=ws&path=%2Fpath#Dialog-2"
   ],
   "mobitel": [
