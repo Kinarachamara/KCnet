@@ -1,7 +1,8 @@
 {
   "dialog": [
     "vless://0b93f629-6dcc-4087-a456-d3276056ee21@frankfurt1.cloudnet-movies.win:443?type=tcp&encryption=none&security=tls&sni=web.whatsapp.net&alpn=h2,http/1.1#DE-1-cloudnetfreev2ray-b6c5",
-    "vless://39fb2c17-d96c-4512-9330-07d94d84181f@frankfurt1.cloudnet-movies.win:443?type=tcp&encryption=none&security=tls&sni=web.whatsapp.net&alpn=h2,http/1.1#DE-3-cloudnetfreev2ray-9b96"
+    "vless://39fb2c17-d96c-4512-9330-07d94d84181f@frankfurt1.cloudnet-movies.win:443?type=tcp&encryption=none&security=tls&sni=web.whatsapp.net&alpn=h2,http/1.1#DE-3-cloudnetfreev2ray-9b96",
+    "trojan://e53a971c-bcac-489e-b8d6-d10b501d4880@us.cloudnet.one:443?type=tcp&security=tls&fp=&alpn=h2%2Chttp%2F1.1&sni=web.whatsapp.net#US-1-cloudnetfreev2ray-f159"
   ],
   "mobitel": [
     "trojan://password@mobitel1.example.com:443?security=tls&sni=mobitel1.example.com#Mobitel-1",
