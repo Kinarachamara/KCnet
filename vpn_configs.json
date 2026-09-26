@@ -8,7 +8,7 @@
     "trojan://password@mobitel2.example.com:443?security=tls&sni=mobitel2.example.com#Mobitel-2"
   ],
   "hutch": [
-    "trojan://password@hutch1.example.com:443?security=tls&sni=hutch1.example.com#Hutch-1"
+    "vless://231b3989-e9d9-4fab-9c17-78f47be5b101@frankfurt1.cloudnet-movies.win:443?type=tcp&encryption=none&security=tls&sni=web.whatsapp.net&alpn=h2,http/1.1#DE-4-cloudnetfreev2ray-d1ed"
   ],
   "default": [
     "trojan://password@default1.example.com:443?security=tls&sni=default1.example.com#Default-1",
