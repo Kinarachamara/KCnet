@@ -1,20 +1,43 @@
 {
-  "dialog": [
-    "vless://0b93f629-6dcc-4087-a456-d3276056ee21@frankfurt1.cloudnet-movies.win:443?type=tcp&encryption=none&security=tls&sni=web.whatsapp.net&alpn=h2,http/1.1#DE-1-cloudnetfreev2ray-b6c5",
-    "vless://39fb2c17-d96c-4512-9330-07d94d84181f@frankfurt1.cloudnet-movies.win:443?type=tcp&encryption=none&security=tls&sni=web.whatsapp.net&alpn=h2,http/1.1#DE-3-cloudnetfreev2ray-9b96",
-    "trojan://e53a971c-bcac-489e-b8d6-d10b501d4880@us.cloudnet.one:443?type=tcp&security=tls&fp=&alpn=h2%2Chttp%2F1.1&sni=web.whatsapp.net#US-1-cloudnetfreev2ray-f159"
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "inet4_address": "172.19.0.1/30",
+      "mtu": 1500,
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "system",
+      "sniff": true
+    }
   ],
-  "mobitel": [
-    "trojan://password@mobitel1.example.com:443?security=tls&sni=mobitel1.example.com#Mobitel-1",
-    "trojan://password@mobitel2.example.com:443?security=tls&sni=mobitel2.example.com#Mobitel-2"
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "IN-2-cloudnetfreev2ray-71f4",
+      "server": "bangalore1.cloudnet-movies.win",
+      "server_port": 443,
+      "uuid": "7e35c233-675f-4503-a463-360ba65bed5e",
+      "tls": {
+        "enabled": true,
+        "server_name": "web.whatsapp.net",
+        "alpn": [
+          "h2",
+          "http/1.1"
+        ]
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct-out"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    }
   ],
-  "hutch": [
-    "vless://231b3989-e9d9-4fab-9c17-78f47be5b101@frankfurt1.cloudnet-movies.win:443?type=tcp&encryption=none&security=tls&sni=web.whatsapp.net&alpn=h2,http/1.1#DE-4-cloudnetfreev2ray-d1ed",
-    "trojan://76c62bf0-4d95-4643-9c38-802a5e61b8fe@us.cloudnet.one:443?type=tcp&security=tls&fp=&alpn=h2%2Chttp%2F1.1&sni=t.me#US-8-cloudnetfreev2ray-b4b9",
-    "vless://7e35c233-675f-4503-a463-360ba65bed5e@bangalore1.cloudnet-movies.win:443?type=tcp&encryption=none&security=tls&sni=web.whatsapp.net&alpn=h2,http/1.1#IN-2-cloudnetfreev2ray-71f4"
-  ],
-  "default": [
-    "trojan://password@default1.example.com:443?security=tls&sni=default1.example.com#Default-1",
-    "vless://39fb2c17-d96c-4512-9330-07d94d84181f@frankfurt1.cloudnet-movies.win:443?type=tcp&encryption=none&security=tls&sni=web.whatsapp.net&alpn=h2,http/1.1#DE-3-cloudnetfreev2ray-9b96"
-  ]
+  "route": {
+    "auto_detect_interface": true,
+    "final": "IN-2-cloudnetfreev2ray-71f4"
+  }
 }
