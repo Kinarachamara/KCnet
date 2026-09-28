@@ -1,308 +1,39 @@
 {
-  "dialog": [
+  "inbounds": [
     {
-      "inbounds": [
-        {
-          "type": "tun",
-          "tag": "tun-in",
-          "inet4_address": "172.19.0.1/30",
-          "mtu": 1500,
-          "auto_route": true,
-          "strict_route": true,
-          "stack": "system",
-          "sniff": true
-        }
-      ],
-      "outbounds": [
-        {
-          "type": "vless",
-          "tag": "DE-1-cloudnetfreev2ray-b6c5",
-          "server": "frankfurt1.cloudnet-movies.win",
-          "server_port": 443,
-          "uuid": "0b93f629-6dcc-4087-a456-d3276056ee21",
-          "tls": {
-            "enabled": true,
-            "server_name": "web.whatsapp.net",
-            "alpn": ["h2", "http/1.1"]
-          }
-        },
-        { "type": "direct", "tag": "direct-out" },
-        { "type": "dns", "tag": "dns-out" }
-      ],
-      "route": { "auto_detect_interface": true, "final": "DE-1-cloudnetfreev2ray-b6c5" }
-    },
-    {
-      "inbounds": [
-        {
-          "type": "tun",
-          "tag": "tun-in",
-          "inet4_address": "172.19.0.1/30",
-          "mtu": 1500,
-          "auto_route": true,
-          "strict_route": true,
-          "stack": "system",
-          "sniff": true
-        }
-      ],
-      "outbounds": [
-        {
-          "type": "vless",
-          "tag": "DE-3-cloudnetfreev2ray-9b96",
-          "server": "frankfurt1.cloudnet-movies.win",
-          "server_port": 443,
-          "uuid": "39fb2c17-d96c-4512-9330-07d94d84181f",
-          "tls": {
-            "enabled": true,
-            "server_name": "web.whatsapp.net",
-            "alpn": ["h2", "http/1.1"]
-          }
-        },
-        { "type": "direct", "tag": "direct-out" },
-        { "type": "dns", "tag": "dns-out" }
-      ],
-      "route": { "auto_detect_interface": true, "final": "DE-3-cloudnetfreev2ray-9b96" }
-    },
-    {
-      "inbounds": [
-        {
-          "type": "tun",
-          "tag": "tun-in",
-          "inet4_address": "172.19.0.1/30",
-          "mtu": 1500,
-          "auto_route": true,
-          "strict_route": true,
-          "stack": "system",
-          "sniff": true
-        }
-      ],
-      "outbounds": [
-        {
-          "type": "trojan",
-          "tag": "US-1-cloudnetfreev2ray-f159",
-          "server": "us.cloudnet.one",
-          "server_port": 443,
-          "password": "e53a971c-bcac-489e-b8d6-d10b501d4880",
-          "tls": {
-            "enabled": true,
-            "server_name": "web.whatsapp.net",
-            "alpn": ["h2", "http/1.1"]
-          }
-        },
-        { "type": "direct", "tag": "direct-out" },
-        { "type": "dns", "tag": "dns-out" }
-      ],
-      "route": { "auto_detect_interface": true, "final": "US-1-cloudnetfreev2ray-f159" }
+      "type": "tun",
+      "tag": "tun-in",
+      "inet4_address": "172.19.0.1/30",
+      "mtu": 1500,
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "system",
+      "sniff": true
     }
   ],
-  "mobitel": [
+  "outbounds": [
     {
-      "inbounds": [
-        {
-          "type": "tun",
-          "tag": "tun-in",
-          "inet4_address": "172.19.0.1/30",
-          "mtu": 1500,
-          "auto_route": true,
-          "strict_route": true,
-          "stack": "system",
-          "sniff": true
-        }
-      ],
-      "outbounds": [
-        {
-          "type": "trojan",
-          "tag": "Mobitel-1",
-          "server": "://example.com",
-          "server_port": 443,
-          "password": "password",
-          "tls": { "enabled": true, "server_name": "://example.com" }
-        },
-        { "type": "direct", "tag": "direct-out" },
-        { "type": "dns", "tag": "dns-out" }
-      ],
-      "route": { "auto_detect_interface": true, "final": "Mobitel-1" }
+      "type": "vless",
+      "tag": "DE-4-cloudnetfreev2ray-d1ed",
+      "server": "frankfurt1.cloudnet-movies.win",
+      "server_port": 443,
+      "uuid": "231b3989-e9d9-4fab-9c17-78f47be5b101",
+      "tls": {
+        "enabled": true,
+        "server_name": "web.whatsapp.net",
+        "alpn": [
+          "h2",
+          "http/1.1"
+        ]
+      }
     },
     {
-      "inbounds": [
-        {
-          "type": "tun",
-          "tag": "tun-in",
-          "inet4_address": "172.19.0.1/30",
-          "mtu": 1500,
-          "auto_route": true,
-          "strict_route": true,
-          "stack": "system",
-          "sniff": true
-        }
-      ],
-      "outbounds": [
-        {
-          "type": "trojan",
-          "tag": "Mobitel-2",
-          "server": "://example.com",
-          "server_port": 443,
-          "password": "password",
-          "tls": { "enabled": true, "server_name": "://example.com" }
-        },
-        { "type": "direct", "tag": "direct-out" },
-        { "type": "dns", "tag": "dns-out" }
-      ],
-      "route": { "auto_detect_interface": true, "final": "Mobitel-2" }
+      "type": "direct",
+      "tag": "direct-out"
     }
   ],
-  "hutch": [
-    {
-      "inbounds": [
-        {
-          "type": "tun",
-          "tag": "tun-in",
-          "inet4_address": "172.19.0.1/30",
-          "mtu": 1500,
-          "auto_route": true,
-          "strict_route": true,
-          "stack": "system",
-          "sniff": true
-        }
-      ],
-      "outbounds": [
-        {
-          "type": "vless",
-          "tag": "DE-4-cloudnetfreev2ray-d1ed",
-          "server": "frankfurt1.cloudnet-movies.win",
-          "server_port": 443,
-          "uuid": "231b3989-e9d9-4fab-9c17-78f47be5b101",
-          "tls": {
-            "enabled": true,
-            "server_name": "web.whatsapp.net",
-            "alpn": ["h2", "http/1.1"]
-          }
-        },
-        { "type": "direct", "tag": "direct-out" },
-        { "type": "dns", "tag": "dns-out" }
-      ],
-      "route": { "auto_detect_interface": true, "final": "DE-4-cloudnetfreev2ray-d1ed" }
-    },
-    {
-      "inbounds": [
-        {
-          "type": "tun",
-          "tag": "tun-in",
-          "inet4_address": "172.19.0.1/30",
-          "mtu": 1500,
-          "auto_route": true,
-          "strict_route": true,
-          "stack": "system",
-          "sniff": true
-        }
-      ],
-      "outbounds": [
-        {
-          "type": "trojan",
-          "tag": "US-8-cloudnetfreev2ray-b4b9",
-          "server": "us.cloudnet.one",
-          "server_port": 443,
-          "password": "76c62bf0-4d95-4643-9c38-802a5e61b8fe",
-          "tls": {
-            "enabled": true,
-            "server_name": "t.me",
-            "alpn": ["h2", "http/1.1"]
-          }
-        },
-        { "type": "direct", "tag": "direct-out" },
-        { "type": "dns", "tag": "dns-out" }
-      ],
-      "route": { "auto_detect_interface": true, "final": "US-8-cloudnetfreev2ray-b4b9" }
-    },
-    {
-      "inbounds": [
-        {
-          "type": "tun",
-          "tag": "tun-in",
-          "inet4_address": "172.19.0.1/30",
-          "mtu": 1500,
-          "auto_route": true,
-          "strict_route": true,
-          "stack": "system",
-          "sniff": true
-        }
-      ],
-      "outbounds": [
-        {
-          "type": "vless",
-          "tag": "IN-2-cloudnetfreev2ray-71f4",
-          "server": "bangalore1.cloudnet-movies.win",
-          "server_port": 443,
-          "uuid": "7e35c233-675f-4503-a463-360ba65bed5e",
-          "tls": {
-            "enabled": true,
-            "server_name": "web.whatsapp.net",
-            "alpn": ["h2", "http/1.1"]
-          }
-        },
-        { "type": "direct", "tag": "direct-out" },
-        { "type": "dns", "tag": "dns-out" }
-      ],
-      "route": { "auto_detect_interface": true, "final": "IN-2-cloudnetfreev2ray-71f4" }
-    }
-  ],
-  "default": [
-    {
-      "inbounds": [
-        {
-          "type": "tun",
-          "tag": "tun-in",
-          "inet4_address": "172.19.0.1/30",
-          "mtu": 1500,
-          "auto_route": true,
-          "strict_route": true,
-          "stack": "system",
-          "sniff": true
-        }
-      ],
-      "outbounds": [
-        {
-          "type": "trojan",
-          "tag": "Default-1",
-          "server": "://example.com",
-          "server_port": 443,
-          "password": "password",
-          "tls": { "enabled": true, "server_name": "://example.com" }
-        },
-        { "type": "direct", "tag": "direct-out" },
-        { "type": "dns", "tag": "dns-out" }
-      ],
-      "route": { "auto_detect_interface": true, "final": "Default-1" }
-    },
-    {
-      "inbounds": [
-        {
-          "type": "tun",
-          "tag": "tun-in",
-          "inet4_address": "172.19.0.1/30",
-          "mtu": 1500,
-          "auto_route": true,
-          "strict_route": true,
-          "stack": "system",
-          "sniff": true
-        }
-      ],
-      "outbounds": [
-        {
-          "type": "vless",
-          "tag": "DE-3-cloudnetfreev2ray-9b96",
-          "server": "frankfurt1.cloudnet-movies.win",
-          "server_port": 443,
-          "uuid": "39fb2c17-d96c-4512-9330-07d94d84181f",
-          "tls": {
-            "enabled": true,
-            "server_name": "web.whatsapp.net",
-            "alpn": ["h2", "http/1.1"]
-          }
-        },
-        { "type": "direct", "tag": "direct-out" },
-        { "type": "dns", "tag": "dns-out" }
-      ],
-      "route": { "auto_detect_interface": true, "final": "DE-3-cloudnetfreev2ray-9b96" }
-    }
-  ]
+  "route": {
+    "auto_detect_interface": true,
+    "final": "DE-4-cloudnetfreev2ray-d1ed"
+  }
 }
