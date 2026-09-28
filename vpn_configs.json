@@ -14,10 +14,10 @@
   "outbounds": [
     {
       "type": "vless",
-      "tag": "DE-4-cloudnetfreev2ray-d1ed",
-      "server": "frankfurt1.cloudnet-movies.win",
+      "tag": "IN-2-cloudnetfreev2ray-71f4",
+      "server": "bangalore1.cloudnet-movies.win",
       "server_port": 443,
-      "uuid": "231b3989-e9d9-4fab-9c17-78f47be5b101",
+      "uuid": "7e35c233-675f-4503-a463-360ba65bed5e",
       "tls": {
         "enabled": true,
         "server_name": "web.whatsapp.net",
@@ -34,6 +34,6 @@
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "DE-4-cloudnetfreev2ray-d1ed"
+    "final": "IN-2-cloudnetfreev2ray-71f4"
   }
 }
