@@ -1,39 +1,90 @@
 {
-  "inbounds": [
+  "dialog": [
     {
-      "type": "tun",
-      "tag": "tun-in",
-      "inet4_address": "172.19.0.1/30",
-      "mtu": 1500,
-      "auto_route": true,
-      "strict_route": true,
-      "stack": "system",
-      "sniff": true
+      "type": "vless",
+      "tag": "DE-1-cloudnetfreev2ray-b6c5",
+      "server": "frankfurt1.cloudnet-movies.win",
+      "server_port": 443,
+      "uuid": "0b93f629-6dcc-4087-a456-d3276056ee21",
+      "sni": "web.whatsapp.net"
+    },
+    {
+      "type": "vless",
+      "tag": "DE-3-cloudnetfreev2ray-9b96",
+      "server": "frankfurt1.cloudnet-movies.win",
+      "server_port": 443,
+      "uuid": "39fb2c17-d96c-4512-9330-07d94d84181f",
+      "sni": "web.whatsapp.net"
+    },
+    {
+      "type": "trojan",
+      "tag": "US-1-cloudnetfreev2ray-f159",
+      "server": "us.cloudnet.one",
+      "server_port": 443,
+      "password": "e53a971c-bcac-489e-b8d6-d10b501d4880",
+      "sni": "web.whatsapp.net"
     }
   ],
-  "outbounds": [
+  "mobitel": [
+    {
+      "type": "trojan",
+      "tag": "Mobitel-1",
+      "server": "://example.com",
+      "server_port": 443,
+      "password": "password",
+      "sni": "://example.com"
+    },
+    {
+      "type": "trojan",
+      "tag": "Mobitel-2",
+      "server": "://example.com",
+      "server_port": 443,
+      "password": "password",
+      "sni": "://example.com"
+    }
+  ],
+  "hutch": [
+    {
+      "type": "vless",
+      "tag": "DE-4-cloudnetfreev2ray-d1ed",
+      "server": "frankfurt1.cloudnet-movies.win",
+      "server_port": 443,
+      "uuid": "231b3989-e9d9-4fab-9c17-78f47be5b101",
+      "sni": "web.whatsapp.net"
+    },
+    {
+      "type": "trojan",
+      "tag": "US-8-cloudnetfreev2ray-b4b9",
+      "server": "us.cloudnet.one",
+      "server_port": 443,
+      "password": "76c62bf0-4d95-4643-9c38-802a5e61b8fe",
+      "sni": "t.me"
+    },
     {
       "type": "vless",
       "tag": "IN-2-cloudnetfreev2ray-71f4",
       "server": "bangalore1.cloudnet-movies.win",
       "server_port": 443,
       "uuid": "7e35c233-675f-4503-a463-360ba65bed5e",
-      "tls": {
-        "enabled": true,
-        "server_name": "web.whatsapp.net",
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ]
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct-out"
+      "sni": "web.whatsapp.net"
     }
   ],
-  "route": {
-    "auto_detect_interface": true,
-    "final": "IN-2-cloudnetfreev2ray-71f4"
-  }
+  "default": [
+    {
+      "type": "trojan",
+      "tag": "Default-1",
+      "server": "://example.com",
+      "server_port": 443,
+      "password": "password",
+      "sni": "://example.com"
+    },
+    {
+      "type": "vless",
+      "tag": "DE-3-cloudnetfreev2ray-9b96",
+      "server": "frankfurt1.cloudnet-movies.win",
+      "server_port": 443,
+      "uuid": "39fb2c17-d96c-4512-9330-07d94d84181f",
+      "sni": "web.whatsapp.net"
+    }
+  ]
 }
